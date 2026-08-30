@@ -7,7 +7,7 @@ vector<vector<bool>> vis(100, vector<bool>(100, false));
 vector<pair<int, int>> d = {{0, 1}, {1, 0}, {-1, 0}, {0, -1}};
 vector<vector<int>> level (100, vector<int> (100, -1));
 
-bool vaild (int i, int j)
+bool valid (int i, int j)
 {
     if (i < 0 || i >= n || j < 0 || j >= m)
         return false;
@@ -36,7 +36,7 @@ void bfs (int si, int sj)
             int ci = par_i + d[i].first;
             int cj = par_j + d[i].second;
 
-            if (vaild (ci, cj) && !vis[ci][cj])
+            if (valid (ci, cj) && !vis[ci][cj])
             {
                 q.push({ci, cj});
                 vis[ci][cj] = true;
