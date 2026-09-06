@@ -40,7 +40,7 @@ int main()
         // edge_list.push_back(Edge(b, a, c)); //* if undirected graph
         
         edge_list.push_back ({a, b, c});
-        edge_list.push_back ({b, a, c}); //! if undirected graph
+        // edge_list.push_back ({b, a, c}); //! if undirected graph
     }
     
     dis[0] = 0;
@@ -55,9 +55,25 @@ int main()
             }
         }
     }
+
+    //? negative cycle dectection
+    bool cycle = false;
+    for (auto [a, b, c] : edge_list)
+    {
+        if (dis[a] != INT_MAX && dis[a] + c < dis[b])
+        {
+            cycle = true;
+            break;
+        }
+    }
     
-    for (int i = 0; i < n; i++)
-        cout << i << " -> " << dis[i] << endl;
+    if (cycle)
+        cout << "Negative Weighted Cycle Dectected!" << endl;
+    else
+    {
+        for (int i = 0; i < n; i++)
+            cout << i << " -> " << dis[i] << endl;
+    }
     
     return 0;
 }
