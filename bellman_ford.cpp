@@ -35,8 +35,12 @@ int main()
     {
         int a, b, c;
         cin >> a >> b >> c;
+
         // edge_list.push_back(Edge(a, b, c));
+        // edge_list.push_back(Edge(b, a, c)); //* if undirected graph
+        
         edge_list.push_back ({a, b, c});
+        edge_list.push_back ({b, a, c}); //! if undirected graph
     }
     
     dis[0] = 0;
